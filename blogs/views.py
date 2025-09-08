@@ -14,7 +14,7 @@ def post_by_category(request, category_id):
     
     #if you want page not found or error use this and also you need this create html on which error code like 404.html
     #and write in html like <p>page not found </P> or you can design this page and also need to setings  on project like blog_main
-    
+
     # category = get_object_or_404(Category, pk=category_id)
     context ={
         'posts':posts,
@@ -22,3 +22,10 @@ def post_by_category(request, category_id):
     }
 
     return render(request, 'posts_by_category.html', context)
+
+def blogs(request, slug):
+    single_blog = get_object_or_404(Blog, slug=slug, status ='Published')
+    context={
+        'single_blog':single_blog,
+    }
+    return render(request,'blogs.html', context)
