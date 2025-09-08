@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-(xu_&^@h6b)8r)+g8cnb4=ocr!kuda*o-v#l64qhzhb)mr6j%="
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # this need to false 404 html work 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] # and this need to be '*' to work 404 custom error code
 
 
 # Application definition
@@ -62,6 +62,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'blogs.context_processors.get_categories', #when you create file get_categories.py you need to give this path
             ],
         },
     },
