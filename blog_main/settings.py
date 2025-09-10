@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "sociallinks",
     'crispy_forms', # you need to install pip install django-crispy-forms and add this here
     'crispy_bootstrap4',
+    'dashboards',
 ]
 
 MIDDLEWARE = [
