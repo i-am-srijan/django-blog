@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "blogs",
     "sociallinks",
+    'crispy_forms', # you need to install pip install django-crispy-forms and add this here
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +51,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+ 
     
 ]
 
@@ -133,3 +136,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_URL ='/media/'
 MEDIA_ROOT = BASE_DIR/'media'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = 'bootstrap4' # you need to install pip install crispy-bootstrap4

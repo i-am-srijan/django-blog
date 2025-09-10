@@ -22,12 +22,22 @@ from django.conf.urls.static import static
 from django.conf import settings
 from blogs import views as BlogView # this is because we cannot import 2 views so we need as 
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name="home"),
     path('category/', include('blogs.urls')),
-    path('<slug:slug>/', BlogView.blogs, name='blogs'), #:slug should be anything you want
+    path('blogs/<slug:slug>/', BlogView.blogs, name='blogs'), #:slug should be anything you want
 
     #search
-    path('blog/search/', BlogView.search, name='search'),
+    path('blogs/search/', BlogView.search, name='search'),
+
+    #registration
+    path('register/', views.register, name="register"),
+
+    #login
+    path('login/', views.login, name='login'),
+
+    #logout
+    path('logout/', views.logout, name='logout')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
