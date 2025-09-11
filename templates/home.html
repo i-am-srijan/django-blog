@@ -39,7 +39,12 @@
           {% for post in posts %}
           <div class="card border-0" >
           <div class="card-body">
-            <h3><a href="{% url 'blogs' post.slug %}" class='text-dark'>{{post.title}}</a></h3>
+            {% comment %} <h3><a href="{% url 'blogs' blog.slug %}" class='text-dark'>{{post.title}}</a></h3> {% endcomment %}
+             {% if post.slug %}
+              <h3><a href="{% url 'blogs' post.slug %}" class="text-dark">{{ post.title }}</a></h3>
+            {% else %}
+              <h3><span class="text-muted">{{ post.title }} (No link)</span></h3>
+            {% endif %} 
             <small class="mb-1 text-muted"> {{ post.created_at|timesince }} ago | {{post.author }}</small>
             <p class="card-text">{{post.short_description | truncatewords:25}}</p>
           </div>
