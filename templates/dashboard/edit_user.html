@@ -9,12 +9,18 @@
 
         <!- right side->
         <div class='col-md-9'>
-            <h2>Add New Post</h2>
-            <form action="{% url 'add_post' %}" method="POST" enctype="multipart/form-data"> <!- any file or image is upladed the use entype ->
+            {% if perms.auth.add_user %}
+            {% comment %} {% if request.user.has_perm "auth.add_user" %} {% endcomment %}
+            <h2>Edit User</h2>
+            <form action="" method="POST">
                {% csrf_token %}
                {{ form | crispy }}
                <button type="submit" class="btn btn-warning"> Submit </button>
             </form>
+            <br>
+            {% else %}
+            <h5>You dont have permission to view this page</h5>
+            {% endif%}
             <br>
         </div>
     </div>
